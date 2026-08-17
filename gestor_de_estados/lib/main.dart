@@ -16,6 +16,14 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(routerConfig: appRouter);
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      title: 'Biblioteca',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 227, 171, 0)),
+        useMaterial3: true,
+      ),
+      routerConfig: appRouter,
+    );
   }
 }

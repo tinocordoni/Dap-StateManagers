@@ -1,0 +1,429 @@
+import 'package:flutter_riverpod/legacy.dart';
+import 'package:gestor_de_estados/classes/class_book.dart';
+
+class BookNotifier extends StateNotifier<List<Book>> {
+  BookNotifier()
+    : super([
+        Book(
+          id: '1',
+          name: "Cien años de soledad",
+          author: "Gabriel García Márquez",
+          desc:
+              "Una saga familiar marcada por la memoria, el destino y lo mágico en el pueblo de Macondo.",
+          year: 1967,
+          cover: "https://covers.openlibrary.org/b/isbn/9780307474728-L.jpg",
+        ),
+        Book(
+          id: '2',
+          name: "Don Quijote de la Mancha",
+          author: "Miguel de Cervantes",
+          desc:
+              "La historia de un hidalgo que sale al mundo decidido a vivir como caballero andante.",
+          year: 1605,
+          cover: "https://covers.openlibrary.org/b/isbn/9780060934347-L.jpg",
+        ),
+        Book(
+          id: '3',
+          name: "Rayuela",
+          author: "Julio Cortázar",
+          desc:
+              "Una novela experimental sobre el amor, la búsqueda personal y la vida entre París y Buenos Aires.",
+          year: 1963,
+          cover: "https://covers.openlibrary.org/b/isbn/9788437604572-L.jpg",
+        ),
+        Book(
+          id: '4',
+          name: "Ficciones",
+          author: "Jorge Luis Borges",
+          desc:
+              "Un conjunto de cuentos que juegan con laberintos, libros, espejos, tiempo e identidad.",
+          year: 1944,
+          cover: "https://covers.openlibrary.org/b/isbn/9780802130303-L.jpg",
+        ),
+        Book(
+          id: '5',
+          name: "El principito",
+          author: "Antoine de Saint-Exupéry",
+          desc:
+              "Un relato poético sobre la infancia, la amistad y la manera de mirar el mundo.",
+          year: 1943,
+          cover: "https://covers.openlibrary.org/b/isbn/9780156012195-L.jpg",
+        ),
+        Book(
+          id: '6',
+          name: "1984",
+          author: "George Orwell",
+          desc:
+              "Una distopía sobre vigilancia, control social y manipulación de la verdad.",
+          year: 1949,
+          cover: "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
+        ),
+        Book(
+          id: '7',
+          name: "Rebelión en la granja",
+          author: "George Orwell",
+          desc:
+              "Una fábula política sobre poder, ideales y corrupción dentro de una granja.",
+          year: 1945,
+          cover: "https://covers.openlibrary.org/b/isbn/9780451526342-L.jpg",
+        ),
+        Book(
+          id: '8',
+          name: "Crimen y castigo",
+          author: "Fiódor Dostoyevski",
+          desc:
+              "Una novela psicológica sobre culpa, moral y conflicto interior en la Rusia urbana.",
+          year: 1866,
+          cover: "https://covers.openlibrary.org/b/isbn/9780140449136-L.jpg",
+        ),
+        Book(
+          id: '9',
+          name: "Los hermanos Karamázov",
+          author: "Fiódor Dostoyevski",
+          desc:
+              "Un drama familiar y filosófico sobre fe, libertad, culpa y responsabilidad.",
+          year: 1880,
+          cover: "https://covers.openlibrary.org/b/isbn/9780374528379-L.jpg",
+        ),
+        Book(
+          id: '10',
+          name: "Orgullo y prejuicio",
+          author: "Jane Austen",
+          desc:
+              "Una historia de amor, malentendidos y diferencias sociales en la Inglaterra rural.",
+          year: 1813,
+          cover: "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
+        ),
+        Book(
+          id: '11',
+          name: "Moby Dick",
+          author: "Herman Melville",
+          desc:
+              "Una aventura marítima sobre obsesión, naturaleza y el misterio de lo inalcanzable.",
+          year: 1851,
+          cover: "https://covers.openlibrary.org/b/isbn/9780142437247-L.jpg",
+        ),
+        Book(
+          id: '12',
+          name: "La metamorfosis",
+          author: "Franz Kafka",
+          desc:
+              "Un relato inquietante sobre transformación, aislamiento y vínculos familiares.",
+          year: 1915,
+          cover: "https://covers.openlibrary.org/b/isbn/9780553213690-L.jpg",
+        ),
+        Book(
+          id: '13',
+          name: "El proceso",
+          author: "Franz Kafka",
+          desc:
+              "Una novela sobre burocracia, culpa y desconcierto frente a una acusación inexplicable.",
+          year: 1925,
+          cover: "https://covers.openlibrary.org/b/isbn/9780805209990-L.jpg",
+        ),
+        Book(
+          id: '14',
+          name: "Drácula",
+          author: "Bram Stoker",
+          desc:
+              "Una novela gótica sobre misterio, miedo y la amenaza de una figura sobrenatural.",
+          year: 1897,
+          cover: "https://covers.openlibrary.org/b/isbn/9780141439846-L.jpg",
+        ),
+        Book(
+          id: '15',
+          name: "Frankenstein",
+          author: "Mary Shelley",
+          desc:
+              "Una historia sobre ciencia, creación, soledad y las consecuencias de desafiar límites.",
+          year: 1818,
+          cover: "https://covers.openlibrary.org/b/isbn/9780141439471-L.jpg",
+        ),
+        Book(
+          id: '16',
+          name: "La odisea",
+          author: "Homero",
+          desc:
+              "Un poema épico sobre viaje, astucia, regreso al hogar y pruebas extraordinarias.",
+          year: -800,
+          cover: "https://covers.openlibrary.org/b/isbn/9780140268867-L.jpg",
+        ),
+        Book(
+          id: '17',
+          name: "La ilíada",
+          author: "Homero",
+          desc:
+              "Un poema épico sobre guerra, honor, ira y destino en el mundo griego antiguo.",
+          year: -750,
+          cover: "https://covers.openlibrary.org/b/isbn/9780140275360-L.jpg",
+        ),
+        Book(
+          id: '18',
+          name: "Hamlet",
+          author: "William Shakespeare",
+          desc:
+              "Una tragedia sobre duda, venganza, poder y conflicto interior.",
+          year: 1603,
+          cover: "https://covers.openlibrary.org/b/isbn/9780743477123-L.jpg",
+        ),
+        Book(
+          id: '19',
+          name: "Romeo y Julieta",
+          author: "William Shakespeare",
+          desc:
+              "Una tragedia romántica sobre amor joven, rivalidades familiares y destino.",
+          year: 1597,
+          cover: "https://covers.openlibrary.org/b/isbn/9780743477116-L.jpg",
+        ),
+        Book(
+          id: '20',
+          name: "Macbeth",
+          author: "William Shakespeare",
+          desc:
+              "Una tragedia sobre ambición, poder, culpa y deseo de grandeza.",
+          year: 1606,
+          cover: "https://covers.openlibrary.org/b/isbn/9780743477109-L.jpg",
+        ),
+        Book(
+          id: '21',
+          name: "El retrato de Dorian Gray",
+          author: "Oscar Wilde",
+          desc:
+              "Una novela sobre belleza, deseo, moral y el precio de la vanidad.",
+          year: 1890,
+          cover: "https://covers.openlibrary.org/b/isbn/9780141439570-L.jpg",
+        ),
+        Book(
+          id: '22',
+          name: "Los miserables",
+          author: "Victor Hugo",
+          desc:
+              "Una novela social sobre justicia, redención, pobreza y lucha por la dignidad.",
+          year: 1862,
+          cover: "https://covers.openlibrary.org/b/isbn/9780140444308-L.jpg",
+        ),
+        Book(
+          id: '23',
+          name: "Nuestra señora de París",
+          author: "Victor Hugo",
+          desc:
+              "Una novela histórica y gótica sobre amor, exclusión y vida en el París medieval.",
+          year: 1831,
+          cover: "https://covers.openlibrary.org/b/isbn/9780140443530-L.jpg",
+        ),
+        Book(
+          id: '24',
+          name: "Madame Bovary",
+          author: "Gustave Flaubert",
+          desc:
+              "Una novela sobre deseo, frustración y búsqueda de una vida más intensa.",
+          year: 1857,
+          cover: "https://covers.openlibrary.org/b/isbn/9780140449129-L.jpg",
+        ),
+        Book(
+          id: '25',
+          name: "Ana Karenina",
+          author: "León Tolstói",
+          desc:
+              "Una novela sobre amor, sociedad, familia y tensiones personales en la aristocracia rusa.",
+          year: 1877,
+          cover: "https://covers.openlibrary.org/b/isbn/9780143035008-L.jpg",
+        ),
+        Book(
+          id: '26',
+          name: "Guerra y paz",
+          author: "León Tolstói",
+          desc:
+              "Una novela monumental sobre historia, familia, guerra y destino en tiempos napoleónicos.",
+          year: 1869,
+          cover: "https://covers.openlibrary.org/b/isbn/9781400079988-L.jpg",
+        ),
+        Book(
+          id: '27',
+          name: "El gran Gatsby",
+          author: "F. Scott Fitzgerald",
+          desc:
+              "Una novela sobre riqueza, deseo, ilusión y desencanto en los años veinte.",
+          year: 1925,
+          cover: "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
+        ),
+        Book(
+          id: '28',
+          name: "Matar a un ruiseñor",
+          author: "Harper Lee",
+          desc:
+              "Una novela sobre infancia, prejuicio, justicia y aprendizaje moral.",
+          year: 1960,
+          cover: "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg",
+        ),
+        Book(
+          id: '29',
+          name: "El guardián entre el centeno",
+          author: "J. D. Salinger",
+          desc:
+              "Una novela sobre adolescencia, desencanto y dificultad para encajar.",
+          year: 1951,
+          cover: "https://covers.openlibrary.org/b/isbn/9780316769488-L.jpg",
+        ),
+        Book(
+          id: '30',
+          name: "Las aventuras de Sherlock Holmes",
+          author: "Arthur Conan Doyle",
+          desc:
+              "Una colección de casos protagonizados por un detective brillante y observador.",
+          year: 1892,
+          cover: "https://covers.openlibrary.org/b/isbn/9780140437713-L.jpg",
+        ),
+        Book(
+          id: '31',
+          name: "Estudio en escarlata",
+          author: "Arthur Conan Doyle",
+          desc:
+              "La primera novela de Sherlock Holmes, centrada en misterio, deducción e investigación.",
+          year: 1887,
+          cover: "https://covers.openlibrary.org/b/isbn/9780140439083-L.jpg",
+        ),
+        Book(
+          id: '32',
+          name: "El nombre de la rosa",
+          author: "Umberto Eco",
+          desc:
+              "Una novela de misterio en una abadía medieval, entre libros, poder y conocimiento.",
+          year: 1980,
+          cover: "https://covers.openlibrary.org/b/isbn/9780156001311-L.jpg",
+        ),
+        Book(
+          id: '33',
+          name: "Ensayo sobre la ceguera",
+          author: "José Saramago",
+          desc:
+              "Una alegoría sobre fragilidad social, miedo y comportamiento humano ante una crisis.",
+          year: 1995,
+          cover: "https://covers.openlibrary.org/b/isbn/9780156007757-L.jpg",
+        ),
+        Book(
+          id: '34',
+          name: "La tregua",
+          author: "Mario Benedetti",
+          desc:
+              "Una novela íntima sobre rutina, amor, esperanza y madurez emocional.",
+          year: 1960,
+          cover: "https://covers.openlibrary.org/b/isbn/9780143039587-L.jpg",
+        ),
+        Book(
+          id: '35',
+          name: "Pedro Páramo",
+          author: "Juan Rulfo",
+          desc:
+              "Una novela breve e intensa sobre memoria, voces y un pueblo cargado de pasado.",
+          year: 1955,
+          cover: "https://covers.openlibrary.org/b/isbn/9780802133908-L.jpg",
+        ),
+        Book(
+          id: '36',
+          name: "La ciudad y los perros",
+          author: "Mario Vargas Llosa",
+          desc:
+              "Una novela sobre disciplina, violencia y formación dentro de un colegio militar.",
+          year: 1963,
+          cover: "https://covers.openlibrary.org/b/isbn/9788420471839-L.jpg",
+        ),
+        Book(
+          id: '37',
+          name: "La casa de los espíritus",
+          author: "Isabel Allende",
+          desc:
+              "Una saga familiar atravesada por memoria, política, amor y elementos mágicos.",
+          year: 1982,
+          cover: "https://covers.openlibrary.org/b/isbn/9780553383805-L.jpg",
+        ),
+        Book(
+          id: '38',
+          name: "El túnel",
+          author: "Ernesto Sabato",
+          desc:
+              "Una novela psicológica sobre obsesión, soledad y una mirada oscura del amor.",
+          year: 1948,
+          cover: "https://covers.openlibrary.org/b/isbn/9780143106531-L.jpg",
+        ),
+        Book(
+          id: '39',
+          name: "Sobre héroes y tumbas",
+          author: "Ernesto Sabato",
+          desc:
+              "Una novela compleja sobre identidad, historia argentina, angustia y vínculos familiares.",
+          year: 1961,
+          cover: "https://covers.openlibrary.org/b/isbn/9788432213991-L.jpg",
+        ),
+        Book(
+          id: '40',
+          name: "La invención de Morel",
+          author: "Adolfo Bioy Casares",
+          desc:
+              "Una novela fantástica sobre aislamiento, percepción, deseo y una extraña invención.",
+          year: 1940,
+          cover: "https://covers.openlibrary.org/b/isbn/9781590170571-L.jpg",
+        ),
+        Book(
+          id: '41',
+          name: "El aleph",
+          author: "Jorge Luis Borges",
+          desc:
+              "Una colección de cuentos sobre infinito, memoria, tiempo y mundos posibles.",
+          year: 1949,
+          cover: "https://covers.openlibrary.org/b/isbn/9780142437889-L.jpg",
+        ),
+        Book(
+          id: '42',
+          name: "Bestiario",
+          author: "Julio Cortázar",
+          desc:
+              "Un libro de cuentos donde lo cotidiano se cruza con lo inquietante y lo fantástico.",
+          year: 1951,
+          cover: "https://covers.openlibrary.org/b/isbn/9788420428321-L.jpg",
+        ),
+        Book(
+          id: '43',
+          name: "Operación masacre",
+          author: "Rodolfo Walsh",
+          desc:
+              "Una investigación narrativa sobre violencia política y búsqueda de verdad.",
+          year: 1957,
+          cover: "https://covers.openlibrary.org/b/isbn/9781609805135-L.jpg",
+        ),
+        Book(
+          id: '44',
+          name: "Martín Fierro",
+          author: "José Hernández",
+          desc:
+              "Un poema gauchesco sobre libertad, injusticia y vida en la pampa argentina.",
+          year: 1872,
+          cover: "https://covers.openlibrary.org/b/isbn/9788437603209-L.jpg",
+        ),
+        Book(
+          id: '45',
+          name: "El amor en los tiempos del cólera",
+          author: "Gabriel García Márquez",
+          desc: "Una novela sobre amor, espera, memoria y el paso del tiempo.",
+          year: 1985,
+          cover: "https://covers.openlibrary.org/b/isbn/9780307389732-L.jpg",
+        ),
+      ]);
+
+  void addBook(Book book) => state = [...state, book];
+
+  void updateBook(Book updatedBook) {
+    state = [
+      for (final book in state)
+        if (book.id == updatedBook.id) updatedBook else book,
+    ];
+  }
+
+  void deleteBook(String id) {
+    state = state.where((book) => book.id != id).toList();
+  }
+}
+
+final bookListProvider = StateNotifierProvider<BookNotifier, List<Book>>(
+  (ref) => BookNotifier(),
+);
